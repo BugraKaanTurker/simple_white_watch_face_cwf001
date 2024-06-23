@@ -21,19 +21,30 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Positioned.fill(
             child: Image.asset(
-              'assets/images/rock_record_watch_face.jpg',
+              'assets/images/page1.png',
               fit: BoxFit.cover,
             ),
           ),
-          const Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.all(20.0),
-              child: ModernButton(
-                onPressed: _launchUrl,
-                text: 'Go to Calkanos\' Portfolio',
+          const Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ModernButton(
+                  onPressed: _launchUrl,
+                  text: 'Go to Calkanos\' Portfolio',
+                  imageAsset: 'assets/images/playstoreicon.png',
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ModernButton(
+                  onPressed: _launchUrl,
+                  text: 'Go Info Page',
+                  imageAsset: 'assets/images/infoIcon.png',
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -44,11 +55,13 @@ class MyHomePage extends StatelessWidget {
 class ModernButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
+  final String imageAsset;
 
   const ModernButton({
     Key? key,
     required this.onPressed,
     required this.text,
+    required this.imageAsset,
   }) : super(key: key);
 
   @override
@@ -76,27 +89,26 @@ class ModernButton extends StatelessWidget {
           ],
         ),
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-        child: SizedBox(
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/playstoreicon.png",
-                  scale: 4,
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  text,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ]),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              imageAsset,
+              scale: 4,
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
         ),
       ),
     );

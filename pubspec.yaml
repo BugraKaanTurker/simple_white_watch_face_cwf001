@@ -71,6 +71,8 @@ flutter:
     - assets/images/playstoreicon.png
     - assets/images/rock_record_watch_face.jpg
     - assets/images/app_icon.png
+    - assets/images/page1.png
+    - assets/images/infoIcon.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
