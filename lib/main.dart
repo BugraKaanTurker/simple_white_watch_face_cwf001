@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:simple_white_watch_face_cwf001/infoPage/info-page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri _url =
@@ -25,7 +27,7 @@ class MyHomePage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          const Column(
+          Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
@@ -39,7 +41,9 @@ class MyHomePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: ModernButton(
-                  onPressed: _launchUrl,
+                  onPressed: () {
+                    _goInfoPage(context);
+                  },
                   text: 'Go Info Page',
                   imageAsset: 'assets/images/infoIcon.png',
                 ),
@@ -119,4 +123,11 @@ Future<void> _launchUrl() async {
   if (!await launchUrl(_url)) {
     throw Exception('Could not launch $_url');
   }
+}
+
+Future<void> _goInfoPage(BuildContext context) async {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const InfoPage()),
+  );
 }
