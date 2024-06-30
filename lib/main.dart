@@ -7,8 +7,9 @@ final Uri _url =
     Uri.parse('https://play.google.com/store/apps/dev?id=5602369099352638268');
 
 void main() => runApp(
-      const MaterialApp(
+      MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark(),
         home: MyHomePage(),
       ),
     );
